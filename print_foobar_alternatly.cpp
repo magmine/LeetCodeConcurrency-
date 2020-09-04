@@ -61,7 +61,9 @@ int main(int argc, char **argv) {
         std::cout<<"foo";
     };
     std::thread t_foo(&FooBar::foo, &fb, printFoo);
-    std::thread t_bar(&FooBar::bar, &fb, printBar);
+    std::thread t_bar(&FooBar::bar, &fb, []() {
+        std::cout<<"bar";
+    });
     t_foo.join();
     t_bar.join();
     std::cout<<"\n";

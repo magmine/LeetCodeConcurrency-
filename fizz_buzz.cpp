@@ -113,7 +113,7 @@ int main() {
     };
 
     std::function<void(int32_t)> printNumber = [&] (int32_t n) {
-        std::cout<<std::to_string(n)<<"\n";
+        std::cout<<n<<"\n";
     };
     std::thread t1 = std::thread(&FizzBuzz::fizz, std::ref(fizzbuzz), printFizz);
     std::thread t2 = std::thread(&FizzBuzz::buzz, std::ref(fizzbuzz), printBuzz);
